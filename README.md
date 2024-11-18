@@ -1,5 +1,3 @@
-
-```markdown
  WebRTC SIP Client for Odoo with FreePBX Integration and Call Recording
 
  Overview
