@@ -1,4 +1,3 @@
-Absolutely! Below is the README.md for your GitHub repository, formatted in Markdown, based on the stepbystep guide you requested.
 
 ```markdown
  WebRTC SIP Client for Odoo with FreePBX Integration and Call Recording
@@ -245,7 +244,3 @@ This system integrates a WebRTC SIP client with FreePBX and Odoo, allowing users
 
 This project is licensed under the MIT License  see the [LICENSE](LICENSE) file for details.
 ```
-
-
-
-This README provides an easytofollow stepbystep guide in markdown for your GitHub repository. You can copy and paste this into the `README.md` file of your repository.
