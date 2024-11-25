@@ -1,0 +1,21 @@
+<odoo>
+    <record id="view_webrtc_sip_client_form" model="ir.ui.view">
+        <field name="name">webrtc.sip.client.form</field>
+        <field name="model">synda.webrtc.sip.client</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sip_extension"/>
+                        <field name="sip_password"/>
+                        <field name="sip_server"/>
+                    </group>
+                    <footer>
+                        <button string="Register SIP" type="object" name="register_sip"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
