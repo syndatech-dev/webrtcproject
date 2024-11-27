@@ -3,166 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliothèques à Installer pour le Projet</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            color: #333;
-        }
-        pre {
-            background: #f4f4f4;
-            padding: 1em;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        code {
-            background: #f4f4f4;
-            padding: 0.2em;
-            border-radius: 3px;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>WebRTC SIP Client pour Odoo via FreePBX - README</title>
 </head>
 <body>
-    <h1>Bibliothèques à Installer pour le Projet</h1>
-    <p>Voici les bibliothèques et outils nécessaires pour faire fonctionner ce projet, à la fois pour l'intégration côté <strong>Odoo</strong>, et pour l'<strong>intégration WebRTC</strong> avec <strong>FreePBX</strong>.</p>
-    <div class="section">
-        <h2>1. Dépendances pour Odoo (Backend)</h2>
-        <h3>Python (Odoo)</h3>
-        <p>Assurez-vous que vous avez installé toutes les dépendances nécessaires pour Odoo. Dans le répertoire du projet Odoo, créez un fichier <code>requirements.txt</code> (si ce n'est pas déjà fait) avec les dépendances suivantes :</p>
-        <h4><code>requirements.txt</code> pour Odoo :</h4>
-        <pre><code>odoo
-psycopg2
-pytz
-requests
-lxml
-jinja2
-Werkzeug</code></pre>
-        <p><strong>Instructions d’installation</strong> :</p>
-        <ol>
-            <li>Installez les dépendances avec <code>pip</code> :</li>
-            <pre><code>pip install -r requirements.txt</code></pre>
-        </ol>
-    </div>
-    <div class="section">
-        <h2>2. Dépendances pour la partie Frontend (WebRTC)</h2>
-        <h3>JsSIP (WebRTC JavaScript Library)</h3>
-        <p><strong>JsSIP</strong> est une bibliothèque JavaScript permettant de créer des clients SIP qui utilisent WebRTC. Elle est utilisée pour gérer les appels SIP côté client via un navigateur.</p>
-        <h3>Installation de JsSIP :</h3>
-        <ol>
-            <li>Téléchargez la bibliothèque <strong>JsSIP</strong> :
-                <ul>
-                    <li><strong>Option 1</strong> : Téléchargez directement depuis <a href="https://github.com/versatica/JsSIP">le dépôt GitHub JsSIP</a>.</li>
-                    <li><strong>Option 2</strong> : Utilisez un CDN pour inclure la bibliothèque dans votre projet.</li>
-                </ul>
-            </li>
-            <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/jssip@3.1.2/dist/JsSIP.js"&gt;&lt;/script&gt;</code></pre>
-            <li>Ajout à votre projet :
-                <ul>
-                    <li>Placez le fichier <code>JsSIP.js</code> dans le répertoire <code>static/src/js/</code> de votre module Odoo, ou utilisez le CDN si vous préférez.</li>
-                </ul>
-            </li>
-            <li>Intégration dans le Module Odoo :
-                <pre><code>'assets': {
-    'web.assets_frontend': [
-        'synda_webrtc_sip_client/static/src/js/JsSIP.js',
-        'synda_webrtc_sip_client/static/src/js/webrtc_client.js'
-    ],
-}</code></pre>
-            </li>
-        </ol>
-    </div>
-    <div class="section">
-        <h2>3. Dépendances pour FreePBX (Backend)</h2>
-        <p>FreePBX utilise Asterisk comme serveur SIP. Pour activer WebRTC, il n'y a pas de dépendances spécifiques à installer pour FreePBX, mais vous devez configurer correctement <strong>WebRTC</strong> dans Asterisk et FreePBX.</p>
-        <h3>Étapes à Suivre :</h3>
-        <ol>
-            <li>Assurez-vous que WebRTC est activé dans FreePBX :
-                <ul>
-                    <li>Dans FreePBX, allez dans <em>Settings &gt; Asterisk SIP Settings</em> et activez le support WebRTC.</li>
-                    <li>Activez TLS (Transport Layer Security) et assurez-vous que le port WebSocket (par défaut 5061) est ouvert.</li>
-                </ul>
-            </li>
-            <li>Configurer les Extensions SIP dans FreePBX pour permettre les connexions WebRTC.</li>
-        </ol>
-        <h4>Codecs à Activer :</h4>
-        <ul>
-            <li><strong>OPUS</strong> : Un codec audio adapté à WebRTC.</li>
-            <li><strong>G722</strong> : Codec audio de haute qualité, souvent utilisé avec WebRTC.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>4. Autres Dépendances Potentielles</h3>
-        <h3>1. WebSocket (pour la communication WebRTC)</h3>
-        <p>Le serveur FreePBX doit être configuré pour utiliser WebSockets pour les connexions WebRTC. Cela ne nécessite pas de dépendance supplémentaire, mais vous devez vous assurer que le port WebSocket est ouvert et correctement configuré dans FreePBX.</p>
-        <h3>2. WebRTC Debugging Tools</h3>
-        <p>Lorsque vous travaillez avec WebRTC, il est très utile d'utiliser les outils de développement du navigateur pour déboguer les appels et la connexion. Ces outils vous permettent de :</p>
-        <ul>
-            <li>Vérifier les erreurs JavaScript.</li>
-            <li>Suivre les connexions WebRTC et SIP.</li>
-            <li>Surveiller les requêtes WebSocket.</li>
-        </ul>
-        <h4>Outils recommandés :</h4>
-        <ul>
-            <li><strong>Chrome DevTools</strong> : Utilisez l'onglet <em>Network</em> et <em>Console</em> pour déboguer.</li>
-            <li><strong>Wireshark</strong> : Utilisez-le pour analyser le trafic SIP et WebRTC.</li>
-            <li><strong>Asterisk CLI</strong> : Si nécessaire, consultez les logs Asterisk pour vérifier la configuration SIP.</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>Résumé des Bibliothèques à Installer</h2>
-        <ul>
-            <li><strong>Backend Odoo (Python)</strong> : 
-                <ul>
-                    <li><code>odoo</code></li>
-                    <li><code>psycopg2</code> (pour la connexion à PostgreSQL)</li>
-                    <li><code>pytz</code>, <code>requests</code>, <code>lxml</code>, <code>jinja2</code>, <code>Werkzeug</code></li>
-                </ul>
-            </li>
-            <li><strong>Frontend (JavaScript)</strong> : 
-                <ul>
-                    <li><strong>JsSIP</strong> : Bibliothèque pour la gestion de SIP/WebRTC.</li>
-                    <li><strong>Bootstrap</strong> (facultatif pour l'UI) : Peut être utilisé pour améliorer l'interface.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="section">
-        <h2>5. Démarrage du Projet</h2>
-        <h3>Étapes pour Démarrer :</h3>
-        <ol>
-            <li>Configurer FreePBX :
-                <ul>
-                    <li>Activez WebRTC et configurez les extensions SIP.</li>
-                </ul>
-            </li>
-            <li>Installer les dépendances Odoo :
-                <ul>
-                    <li>Créez un environnement virtuel Python.</li>
-                    <li>Installez les dépendances avec <code>pip install -r requirements.txt</code>.</li>
-                </ul>
-            </li>
-            <li>Lancer Odoo :
-                <ul>
-                    <li>Démarrez Odoo avec la commande suivante :
-                        <pre><code>./odoo-bin -c odoo.conf</code></pre>
-                    </li>
-                    <li>Accédez à l'interface Odoo via <code>http://localhost:8069</code> ou l'adresse de votre serveur.</li>
-                </ul>
-            </li>
-            <li>Configurer et tester WebRTC :
-                <ul>
-                    <li>O[_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)[_{{{CITATION{{{_2{](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md)
-                                    <ul>
-                    <li>Ouvrez la page où le client WebRTC est intégré et testez l'enregistrement SIP et la fonction d'appel.</li>
-                </ul>
-            </li>
-        </ol>
-    </div>
+    <h1>WebRTC SIP Client pour Odoo via FreePBX</h1>
+
+    <p>
+        Ce projet permet l’intégration d’un client WebRTC SIP dans Odoo, en utilisant FreePBX comme serveur SIP backend.
+        Le client WebRTC est conçu pour enregistrer des utilisateurs SIP, initier des appels, gérer le transfert d’appels,
+        et afficher l’historique des appels.
+    </p>
+
+    <h2>1. Fonctionnalités</h2>
+    <ul>
+        <li><strong>Enregistrement SIP WebRTC</strong> : Permet aux utilisateurs de s’enregistrer via FreePBX.</li>
+        <li><strong>Initiation d’Appels</strong> : Les utilisateurs peuvent passer des appels SIP depuis Odoo.</li>
+        <li><strong>Transfert d’Appels</strong> : Transférez des appels actifs vers un autre numéro SIP.</li>
+        <li><strong>Historique des Appels</strong> : Affichage des appels passés, avec l’heure, le statut et les participants.</li>
+        <li><strong>Interface Moderne</strong> : Construite avec Bootstrap pour une meilleure expérience utilisateur.</li>
+    </ul>
+
+    <h2>2. Dépendances</h2>
+
+    <h3>Sur le Serveur</h3>
+    <ul>
+        <li><strong>FreePBX</strong> (Version 15+ recommandé) :
+            <ul>
+                <li>WebRTC activé.</li>
+                <li>Extensions SIP correctement configurées.</li>
+                <li>Codecs <code>OPUS</code> et <code>G722</code> activés.</li>
+            </ul>
+        </li>
+        <li><strong>Odoo</strong> (Version 14+ recommandé) : Serveur Odoo fonctionnel. Module personnalisé placé dans le répertoire <code>addons</code>.</li>
+        <li><strong>Python</strong> (pour Odoo) :
+            <ul>
+                <li><code>odoo</code></li>
+                <li><code>psycopg2</code></li>
+                <li><code>pytz</code></li>
+                <li><code>requests</code></li>
+                <li><code>lxml</code></li>
+                <li><code>jinja2</code></li>
+                <li><code>Werkzeug</code></li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Frontend</h3>
+    <ul>
+        <li><strong>JsSIP</strong> : Bibliothèque JavaScript pour les appels WebRTC/SIP.
+            <ul>
+                <li>Téléchargé depuis <a href="https://github.com/versatica/JsSIP" target="_blank">le dépôt GitHub JsSIP</a> ou via un CDN.</li>
+            </ul>
+        </li>
+        <li><strong>Bootstrap</strong> : Framework CSS pour l'interface utilisateur.
+            <ul>
+                <li>Chargé via un CDN :
+                    <pre><code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</code></pre>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>3. Installation</h2>
+
+    <h3>Étape 1 : Configurer FreePBX</h3>
+    <ol>
+        <li>Activez WebRTC dans FreePBX :
+            <ul>
+                <li>Allez dans *Settings > Asterisk SIP Settings*.</li>
+                <li>Activez WebRTC et TLS.</li>
+                <li>Ajoutez un certificat SSL valide.</li>
+            </ul>
+        </li>
+        <li>Configurez des extensions SIP dans FreePBX pour permettre les connexions WebRTC.</li>
+        <li>Copiez les fichiers de configuration : <code>sip.conf</code>, <code>pjsip.conf</code>, et <code>extensions.conf</code> vers le répertoire <code>/etc/asterisk/</code> et redémarrez Asterisk avec la commande suivante :
+            <pre><code>fwconsole restart</code></pre>
+        </li>
+    </ol>
+
+    <h3>Étape 2 : Installer le Module Odoo</h3>
+    <ol>
+        <li>Placez le dossier <code>synda_webrtc_sip_client</code> dans le répertoire <code>addons</code> de votre installation Odoo.</li>
+        <li>Vérifiez que le fichier <code>__manifest__.py</code> inclut toutes les dépendances nécessaires.</li>
+        <li>Rechargez la liste des modules dans Odoo :
+            <ul>
+                <li>Allez dans *Apps > Mettre à jour la liste*.</li>
+                <li>Recherchez *WebRTC SIP Client* et installez le module.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Étape 3 : Démarrer le Serveur</h3>
+    <ol>
+        <li><strong>Démarrer Odoo</strong> :
+            <pre><code>./odoo-bin -c odoo.conf</code></pre>
+            Accédez à <code>http://localhost:8069</code> ou l'adresse de votre serveur.
+        </li>
+        <li><strong>Démarrer FreePBX</strong> :
+            <pre><code>fwconsole start</code></pre>
+        </li>
+    </ol>
+
+    <h2>4. Utilisation</h2>
+
+    <ol>
+        <li><strong>Accéder à l’Interface WebRTC</strong> :
+            <ul>
+                <li>Allez dans le menu d’Odoo où l'interface est intégrée.</li>
+                <li>Vous verrez :
+                    <ul>
+                        <li>Un bouton pour enregistrer l’utilisateur SIP.</li>
+                        <li>Un champ pour initier un appel.</li>
+                        <li>Une section pour transférer des appels.</li>
+                        <li>Un tableau affichant l’historique des appels.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Enregistrer un Utilisateur SIP</strong> :
+            <ul>
+                <li>Cliquez sur le bouton *Register SIP*.</li>
+                <li>Vérifiez le statut dans *sip-status*. S’il affiche *Registered*, l’enregistrement a réussi.</li>
+            </ul>
+        </li>
+        <li><strong>Faire un Appel</strong> :
+            <ul>
+                <li>Entrez un numéro SIP valide dans *Enter target SIP address*.</li>
+                <li>Cliquez sur *Make Call*. Le statut de l’appel changera en fonction de son état.</li>
+            </ul>
+        </li>
+        <li><strong>Transférer un Appel</strong> :
+            <ul>
+                <li>Pendant un appel actif, entrez un numéro SIP dans *Enter transfer target SIP address*.</li>
+                <li>Cliquez sur *Transfer Call*. L’appel sera transféré au destinataire.</li>
+            </ul>
+        </li>
+        <li><strong>Vérifier l’Historique des Appels</strong> :
+            <ul>
+                <li>Consultez le tableau sous la section *Call History* pour voir les appels passés.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>5. Débogage</h2>
+
+    <h3>Problèmes d’Enregistrement SIP</h3>
+    <ul>
+        <li>Vérifiez les logs FreePBX dans *Reports > Asterisk Logfiles*.</li>
+        <li>Assurez-vous que les informations de connexion SIP (nom d’utilisateur et mot de passe) sont correctes.</li>
+    </ul>
+
+    <h3>Problèmes de Connexion WebRTC</h3>
+    <ul>
+        <li>Vérifiez que le port WebSocket (5061 par défaut) est ouvert.</li>
+        <li>Testez avec les outils de développement du navigateur (Inspecter > Console) pour détecter les erreurs JavaScript.</li>
+    </ul>
+
+    <h3>Problèmes de Démarrage du Module Odoo</h3>
+    <ul>
+        <li>Assurez-vous que le module est bien activé dans Odoo.</li>
+        <li>Vérifiez les permissions sur les fichiers et les répertoires.</li>
+    </ul>
+
+    <h2>6. Améliorations Futures</h2>
+    <ul>
+        <li>Ajouter des fonctionnalités comme :
+            <ul>
+                <li>Gestion des appels vidéo.</li>
+                <li>Intégration CRM avec journalisation des appels.</li>
+                <li>Notifications en temps réel pour les appels entrants.</li>
+            </ul>
+        </li>
+        <li>Polir l’interface utilisateur avec des animations et des améliorations visuelles.</li>
+    </ul>
+
+    <p>Si vous avez des questions ou des problèmes, n'hésitez pas à demander de l'aide ! 🎉</p>
+
 </body>
 </html>
