@@ -1,12 +1,12 @@
 <odoo>
-    <!-- Définition de l'action pour appeler l'interface -->
-    <record id="action_call_interface" model="ir.actions.act_window">
-        <field name="name">Call Interface</field>
+    <!-- Définition de l'action -->
+    <record id="action_webrtc_sip_client" model="ir.actions.act_window">
+        <field name="name">WebRTC SIP Client</field>
         <field name="res_model">web.webrtc.client</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="call_interface" />
+        <field name="view_id" ref="webrtc_sip_client" />
     </record>
 
-    <!-- Définition du menu associé -->
-    <menuitem id="menu_call_interface" name="Call Interface" parent="base.menu_custom" action="action_call_interface" />
+    <!-- Définition du menu -->
+    <menuitem id="menu_webrtc_sip_client" name="WebRTC SIP Client" parent="base.menu_custom" action="action_webrtc_sip_client" />
 </odoo>
