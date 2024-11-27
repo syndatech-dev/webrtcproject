@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -63,12 +61,7 @@ Werkzeug</code></pre>
                     <li><strong>Option 2</strong> : Utilisez un CDN pour inclure la bibliothèque dans votre projet.</li>
                 </ul>
             </li>
-            <pre>
-                <code>&lt;script src="https://cdn.jsdelivr.net/npm/jssip@3.1.2/dist/JsSIP.js"&[_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)[_{{{CITATION{{{_2{](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md)
-            <script src="https://cdn.jsdelivr.net/npm/jssip@3.1.2/dist/JsSIP.js"></script>
-            </pre>
-            <code>
- `
+            <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/jssip@3.1.2/dist/JsSIP.js"&gt;&lt;/script&gt;</code></pre>
             <li>Ajout à votre projet :
                 <ul>
                     <li>Placez le fichier <code>JsSIP.js</code> dans le répertoire <code>static/src/js/</code> de votre module Odoo, ou utilisez le CDN si vous préférez.</li>
@@ -80,9 +73,7 @@ Werkzeug</code></pre>
         'synda_webrtc_sip_client/static/src/js/JsSIP.js',
         'synda_webrtc_sip_client/static/src/js/webrtc_client.js'
     ],
-}</code>
-
-</pre>
+}</code></pre>
             </li>
         </ol>
     </div>
@@ -106,7 +97,7 @@ Werkzeug</code></pre>
         </ul>
     </div>
     <div class="section">
-        <h2>4. Autres Dépendances Potentielles</h2>
+        <h2>4. Autres Dépendances Potentielles</h3>
         <h3>1. WebSocket (pour la communication WebRTC)</h3>
         <p>Le serveur FreePBX doit être configuré pour utiliser WebSockets pour les connexions WebRTC. Cela ne nécessite pas de dépendance supplémentaire, mais vous devez vous assurer que le port WebSocket est ouvert et correctement configuré dans FreePBX.</p>
         <h3>2. WebRTC Debugging Tools</h3>
@@ -166,6 +157,8 @@ Werkzeug</code></pre>
             </li>
             <li>Configurer et tester WebRTC :
                 <ul>
+                    <li>O[_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)[_{{{CITATION{{{_2{](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md)
+                                    <ul>
                     <li>Ouvrez la page où le client WebRTC est intégré et testez l'enregistrement SIP et la fonction d'appel.</li>
                 </ul>
             </li>
