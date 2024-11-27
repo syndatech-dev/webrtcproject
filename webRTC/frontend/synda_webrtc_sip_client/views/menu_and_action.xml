@@ -1,0 +1,12 @@
+<odoo>
+    <!-- Définition de l'action pour appeler l'interface -->
+    <record id="action_call_interface" model="ir.actions.act_window">
+        <field name="name">Call Interface</field>
+        <field name="res_model">web.webrtc.client</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="call_interface" />
+    </record>
+
+    <!-- Définition du menu associé -->
+    <menuitem id="menu_call_interface" name="Call Interface" parent="base.menu_custom" action="action_call_interface" />
+</odoo>
