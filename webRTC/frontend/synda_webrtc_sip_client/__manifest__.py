@@ -6,7 +6,10 @@
     'description': 'A WebRTC SIP client to register extensions and make calls via FreePBX.',
     'author': 'Synda Tech',
     'depends': ['base', 'web'],
-    'data': ['views/webrtc_sip_template.xml'],
+    'data': [
+        'views/webrtc_sip_template.xml',
+        'views/call_interface.xml'
+    ],
     'assets': {
         'web.assets_frontend': [
             'synda_webrtc_sip_client/static/src/js/JsSIP.js',
