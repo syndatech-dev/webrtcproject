@@ -65,10 +65,10 @@ Werkzeug</code></pre>
             </li>
             <pre>
                 <code>&lt;script src="https://cdn.jsdelivr.net/npm/jssip@3.1.2/dist/JsSIP.js"&[_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)[_{{{CITATION{{{_2{](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md)
-
             <script src="https://cdn.jsdelivr.net/npm/jssip@3.1.2/dist/JsSIP.js"></script>
             </pre>
             <code>
+ `
             <li>Ajout à votre projet :
                 <ul>
                     <li>Placez le fichier <code>JsSIP.js</code> dans le répertoire <code>static/src/js/</code> de votre module Odoo, ou utilisez le CDN si vous préférez.</li>
@@ -80,7 +80,9 @@ Werkzeug</code></pre>
         'synda_webrtc_sip_client/static/src/js/JsSIP.js',
         'synda_webrtc_sip_client/static/src/js/webrtc_client.js'
     ],
-}</code></pre>
+}</code>
+
+</pre>
             </li>
         </ol>
     </div>
