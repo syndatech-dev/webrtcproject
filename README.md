@@ -101,11 +101,3 @@ Ce projet permet l’intégration d’un client WebRTC SIP dans Odoo, en utilisa
 ### Problèmes de Démarrage du Module Odoo
 - Assurez-vous que le module est bien activé dans Odoo.
 - Vérifiez les permissions sur les fichiers et les répertoires.
-
-## 6. Améliorations Futures
-- Ajouter des fonctionnalités comme :
-  - Gestion des appels vidéo.
-  - Intégration CRM avec journalisation des appels.
-  - Notifications en temps réel pour les appels entrants.
-- Polir l’interface utilisateur avec des animations et des améliorations visuelles.
-
