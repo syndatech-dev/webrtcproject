@@ -1,0 +1,7 @@
+odoo
+psycopg2
+pytz
+requests
+lxml
+jinja2
+Werkzeug
