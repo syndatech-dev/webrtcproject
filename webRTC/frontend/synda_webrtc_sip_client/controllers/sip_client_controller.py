@@ -5,47 +5,45 @@ import logging
 _logger = logging.getLogger(__name__)
 
 class SIPClientController(http.Controller):
-    @http.route('/webrtc/register', type='json', auth='user')
-    def register_sip_user(self, username, password):
-        """
-        Endpoint to handle SIP user registration.
-        This will check the provided SIP credentials.
-        """
-        _logger.info("Registering SIP user: %s", username)
-        try:
-            # Simulate a backend check or send the credentials to a SIP server
-            if username and password:
-                return {'status': 'success', 'message': 'User registered successfully!'}
-            else:
-                return {'status': 'error', 'message': 'Invalid credentials'}
-        except Exception as e:
-            _logger.error("Error registering SIP user: %s", e)
-            return {'status': 'error', 'message': str(e)}
 
     @http.route('/webrtc/call', type='json', auth='user')
     def make_sip_call(self, from_user, to_user):
         """
         Endpoint to handle making a SIP call.
+        Simulates initiating a call between two SIP users.
         """
         _logger.info("Initiating call from %s to %s", from_user, to_user)
         try:
-            # Simulate calling logic (e.g., sending a SIP INVITE)
-            if from_user and to_user:
-                return {'status': 'success', 'message': f'Call from {from_user} to {to_user} initiated!'}
-            else:
-                return {'status': 'error', 'message': 'Invalid call parameters'}
+            if not from_user or not to_user:
+                return {'status': 'error', 'message': 'Both source and target users are required'}
+
+            # Simulate SIP call initiation logic
+            # You can integrate with an actual SIP server here if needed
+            # For now, we log the call and store it in the history
+            request.env['sip.call.history'].create({
+                'from_sip': from_user,
+                'to_sip': to_user,
+                'status': 'completed',  # Default status for now
+                'call_date': fields.Datetime.now(),
+            })
+
+            return {
+                'status': 'success',
+                'message': f'Call from {from_user} to {to_user} initiated successfully!'
+            }
         except Exception as e:
-            _logger.error("Error making SIP call: %s", e)
+            _logger.error("Error initiating SIP call: %s", e)
             return {'status': 'error', 'message': str(e)}
 
     @http.route('/webrtc/history', type='json', auth='user')
     def get_call_history(self):
         """
         Endpoint to retrieve the call history from the database.
+        Returns all call records for the current user.
         """
         _logger.info("Fetching call history for user: %s", request.env.user.name)
         try:
-            # Fetch call history from the database (example for a model `sip.call.history`)
+            # Fetch call history from the database
             history = request.env['sip.call.history'].search_read([], ['from_sip', 'to_sip', 'status', 'call_date'])
             return {'status': 'success', 'history': history}
         except Exception as e:
