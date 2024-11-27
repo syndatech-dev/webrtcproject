@@ -1,65 +1,81 @@
-odoo.define('synda_webrtc_sip_client.webrtc_client', function(require) {
+odoo.define('synda_webrtc_sip_client.webrtc_client', function (require) {
     "use strict";
 
-    const JsSIP = require('web.assets_frontend').JsSIP;
+    const { Component } = require('web.Component');
+    const core = require('web.core');
+    const _t = core._t;
 
-    class WebRTCClient {
+    class WebRTCClient extends Component {
         constructor() {
-            this.sipServer = 'wss://your-server:5061/ws';
-            this.sipUser = 'webrtc_user';
-            this.sipPassword = 'webrtc_password';
-            this.sipUA = null;
-            this.currentCall = null; // Stocke l'appel en cours
+            super(...arguments);
+
+            // Configuration de base
+            this.sipServer = 'wss://your-sip-server:5061'; // Remplacez par l'adresse de votre serveur FreePBX
+            this.sipURI = 'sip:webrtc_user@yourdomain.com'; // Identifiant SIP
+            this.sipPassword = 'your_password'; // Mot de passe SIP
+            this.sipUA = null; // Instance de l'User Agent (UA)
+        }
+
+        start() {
+            this.registerSIP();
         }
 
         registerSIP() {
             const socket = new JsSIP.WebSocketInterface(this.sipServer);
-            this.sipUA = new JsSIP.UA({
-                uri: `sip:${this.sipUser}@yourdomain.com`,
-                ws_servers: [socket],
-                authorization_user: this.sipUser,
+            const configuration = {
+                sockets: [socket],
+                uri: this.sipURI,
                 password: this.sipPassword,
-                trace_sip: true
+                trace_sip: true, // Activez pour déboguer les messages SIP
+            };
+
+            // Initialiser l'agent utilisateur SIP
+            this.sipUA = new JsSIP.UA(configuration);
+
+            // Gestion des événements
+            this.sipUA.on('registered', () => {
+                console.log('Registered successfully');
+                document.getElementById("sip-status").textContent = "Status: Registered";
             });
 
-            this.sipUA.on('registered', () => console.log('Registered!'));
+            this.sipUA.on('registrationFailed', (e) => {
+                console.error('Registration failed', e);
+                document.getElementById("sip-status").textContent = "Status: Registration Failed";
+            });
+
             this.sipUA.start();
         }
 
         makeCall(target) {
             if (!this.sipUA || !this.sipUA.isRegistered()) {
-                alert('You must register first!');
+                alert("Vous devez d'abord vous enregistrer !");
                 return;
             }
 
-            this.currentCall = this.sipUA.call(`sip:${target}@yourdomain.com`, {
-                mediaConstraints: { audio: true, video: false }
-            });
+            const eventHandlers = {
+                progress: () => console.log('Call in progress'),
+                failed: (e) => console.log(`Call failed: ${e.data.cause}`),
+                ended: (e) => console.log('Call ended'),
+                confirmed: () => console.log('Call confirmed'),
+            };
 
-            this.currentCall.on('accepted', () => console.log('Call accepted'));
-            this.currentCall.on('ended', () => console.log('Call ended'));
-        }
+            const options = {
+                eventHandlers,
+                mediaConstraints: { audio: true, video: false },
+            };
 
-        transferCall(newTarget) {
-            if (!this.currentCall || this.currentCall.isEnded()) {
-                alert('No active call to transfer!');
-                return;
-            }
-
-            this.currentCall.refer(`sip:${newTarget}@yourdomain.com`);
-            console.log(`Call transferred to ${newTarget}`);
+            this.sipUA.call(`sip:${target}@yourdomain.com`, options);
         }
     }
 
-    return WebRTCClient;
-});
+    // Initialisation après chargement de la page
+    document.addEventListener("DOMContentLoaded", function () {
+        const client = new WebRTCClient();
+        client.start();
 
-document.getElementById("register-sip").onclick = () => client.registerSIP();
-document.getElementById("make-call").onclick = () => {
-    const target = document.getElementById("call-target").value;
-    client.makeCall(target);
-};
-document.getElementById("transfer-call").onclick = () => {
-    const newTarget = document.getElementById("transfer-target").value;
-    client.transferCall(newTarget);
-};
+        document.getElementById("make-call").onclick = function () {
+            const target = document.getElementById("call-target").value;
+            client.makeCall(target);
+        };
+    });
+});
