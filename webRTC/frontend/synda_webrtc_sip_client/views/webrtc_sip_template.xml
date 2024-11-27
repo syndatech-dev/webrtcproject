@@ -2,30 +2,35 @@
     <template id="webrtc_sip_client" name="WebRTC SIP Client">
         <t t-call="web.layout">
             <div id="webrtc-client" class="container mt-5">
-                <h3>WebRTC SIP Client</h3>
-                
-                <!-- Register SIP Section -->
-                <button id="register-sip" class="btn btn-primary mb-3">Register SIP</button>
-                <div id="sip-status" class="mb-3">Status: Not Registered</div>
+                <!-- Inclure JsSIP depuis un CDN -->
+                <script src="https://cdn.jsdelivr.net/npm/jssip@3.9.0/dist/jssip.min.js"></script>
 
-                <!-- Make Call Section -->
+                <!-- Titre -->
+                <h3 class="mb-4">WebRTC SIP Client</h3>
+
+                <!-- Section pour enregistrer l'utilisateur SIP -->
+                <div class="mb-3">
+                    <button id="register-sip" class="btn btn-primary">Register SIP</button>
+                    <div id="sip-status" class="mt-2">Status: Not Registered</div>
+                </div>
+
+                <!-- Section pour passer un appel -->
                 <div class="mb-3">
                     <input type="text" id="call-target" class="form-control" placeholder="Enter target SIP address" />
                     <button id="make-call" class="btn btn-success mt-2">Make Call</button>
+                    <div id="call-status" class="mt-2">Call Status: Idle</div>
                 </div>
 
-                <div id="call-status" class="mb-3">Call Status: Idle</div>
-
-                <!-- Transfer Call Section -->
+                <!-- Section pour transférer un appel -->
                 <div class="mb-3">
                     <input type="text" id="transfer-target" class="form-control" placeholder="Enter transfer target SIP address" />
                     <button id="transfer-call" class="btn btn-warning mt-2">Transfer Call</button>
                 </div>
 
-                <!-- Call History Section -->
+                <!-- Section pour afficher l'historique des appels -->
                 <div id="call-history" class="mb-3">
                     <h4>Call History</h4>
-                    <table class="table">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>From</th>
@@ -37,10 +42,10 @@
                         <tbody>
                             <t t-foreach="call_history" t-as="call">
                                 <tr>
-                                    <td><t t-esc="call.from_sip"/></td>
-                                    <td><t t-esc="call.to_sip"/></td>
-                                    <td><t t-esc="call.status"/></td>
-                                    <td><t t-esc="call.call_date"/></td>
+                                    <td><t t-esc="call.from_sip" /></td>
+                                    <td><t t-esc="call.to_sip" /></td>
+                                    <td><t t-esc="call.status" /></td>
+                                    <td><t t-esc="call.call_date" /></td>
                                 </tr>
                             </t>
                         </tbody>
