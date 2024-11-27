@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_call_history,webrtc.call.history,model_webrtc_call_history,,1,1,1,1
-access_call_logs,webrtc.logs,model_webrtc_logs,,1,1,1,1
-access_webrtc_sip,webrtc.sip,model_webrtc_sip,,1,1,1,1
