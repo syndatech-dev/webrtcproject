@@ -1,0 +1,52 @@
+<odoo>
+    <template id="webrtc_sip_client" name="WebRTC SIP Client">
+        <t t-call="web.layout">
+            <div id="webrtc-client" class="container mt-5">
+                <h3>WebRTC SIP Client</h3>
+                
+                <!-- Register SIP Section -->
+                <button id="register-sip" class="btn btn-primary mb-3">Register SIP</button>
+                <div id="sip-status" class="mb-3">Status: Not Registered</div>
+
+                <!-- Make Call Section -->
+                <div class="mb-3">
+                    <input type="text" id="call-target" class="form-control" placeholder="Enter target SIP address" />
+                    <button id="make-call" class="btn btn-success mt-2">Make Call</button>
+                </div>
+
+                <div id="call-status" class="mb-3">Call Status: Idle</div>
+
+                <!-- Transfer Call Section -->
+                <div class="mb-3">
+                    <input type="text" id="transfer-target" class="form-control" placeholder="Enter transfer target SIP address" />
+                    <button id="transfer-call" class="btn btn-warning mt-2">Transfer Call</button>
+                </div>
+
+                <!-- Call History Section -->
+                <div id="call-history" class="mb-3">
+                    <h4>Call History</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="call_history" t-as="call">
+                                <tr>
+                                    <td><t t-esc="call.from_sip"/></td>
+                                    <td><t t-esc="call.to_sip"/></td>
+                                    <td><t t-esc="call.status"/></td>
+                                    <td><t t-esc="call.call_date"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
