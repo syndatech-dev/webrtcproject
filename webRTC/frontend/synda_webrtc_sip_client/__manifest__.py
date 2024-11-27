@@ -8,6 +8,7 @@
     'depends': ['base', 'web'],
     'data': [
         'views/webrtc_sip_template.xml',
+        'views/menu_and_action.xml',
         'views/call_interface.xml'
     ],
     'assets': {
