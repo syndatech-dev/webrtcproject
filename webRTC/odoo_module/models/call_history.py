@@ -8,7 +8,7 @@ class CallHistory(models.Model):
     _order = 'start_time desc'
 
     name = fields.Char(compute='_compute_name', store=True)
-    user_id = fields.Many2one('res.users', string='User', required=True)
+    user_id = fields.Many2one('res.users', string='User')
     direction = fields.Selection([
         ('inbound', 'Inbound'),
         ('outbound', 'Outbound')
