@@ -1,0 +1,4 @@
+<odoo>
+    <menuitem id="menu_webrtc_root" name="WebRTC SIP" sequence="10"/>
+    <menuitem id="menu_webrtc_calls" name="Call History" parent="menu_webrtc_root" action="action_webrtc_calls"/>
+</odoo>
