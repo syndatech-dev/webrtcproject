@@ -6,7 +6,6 @@
     'summary': 'WebRTC-based SIP client integration for Odoo',
     'depends': ['base', 'web'],
     'data': [
-        'security/ir.model.access.csv',
         'views/call_interface_form.xml',
         'views/res_users_form.xml',
         'webRTC/frontend/views/sip_interface.xml'
