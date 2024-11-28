@@ -13,8 +13,8 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'webrtc_sip_client/static/src/js/sip_client.js',
-            'webrtc_sip_client/static/src/js/webrtc_client.js',
+            'webRTC/frontend/static/js/sip_client.js',
+            'webRTC/frontend/static/js/webrtc_client.js',
         ],
     },
     'installable': True,
