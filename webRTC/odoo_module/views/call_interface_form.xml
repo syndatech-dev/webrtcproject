@@ -1,0 +1,60 @@
+<!-- odoo_module/views/call_interface_form.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_webrtc_call_interface_form" model="ir.ui.view">
+        <field name="name">webrtc.call.interface.form</field>
+        <field name="model">webrtc.call.interface</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="make_call" string="Call" type="object" class="oe_highlight"/>
+                    <button name="end_call" string="End Call" type="object" states="connected"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="phone_number" required="1"/>
+                            <field name="duration" widget="float_time"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="start_time"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Call History">
+                            <field name="call_history_ids" readonly="1">
+                                <tree>
+                                    <field name="start_time"/>
+                                    <field name="phone_number"/>
+                                    <field name="duration"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- List view for call history -->
+    <record id="view_webrtc_call_history_tree" model="ir.ui.view">
+        <field name="name">webrtc.call.history.tree</field>
+        <field name="model">webrtc.call.history</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="direction"/>
+                <field name="phone_number"/>
+                <field name="start_time"/>
+                <field name="duration" widget="float_time"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>

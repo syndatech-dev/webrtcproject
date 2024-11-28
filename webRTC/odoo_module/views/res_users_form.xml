@@ -1,0 +1,28 @@
+<!-- odoo_module/views/res_users_form.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_users_form_sip_extension" model="ir.ui.view">
+        <field name="name">res.users.form.sip.extension</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="SIP Configuration" groups="base.group_system">
+                    <group>
+                        <group>
+                            <field name="sip_extension"/>
+                            <field name="sip_password" password="True"/>
+                            <field name="sip_status"/>
+                        </group>
+                        <group>
+                            <button name="generate_sip_credentials" 
+                                    string="Generate Credentials" 
+                                    type="object" 
+                                    class="oe_highlight"/>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

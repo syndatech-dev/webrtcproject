@@ -1,0 +1,19 @@
+<!-- odoo_module/views/menu_items.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_webrtc_root"
+              name="WebRTC Phone"
+              sequence="50"/>
+
+    <menuitem id="menu_webrtc_call"
+              name="Phone"
+              parent="menu_webrtc_root"
+              action="action_webrtc_call_interface"
+              sequence="10"/>
+
+    <menuitem id="menu_webrtc_history"
+              name="Call History"
+              parent="menu_webrtc_root"
+              action="action_webrtc_call_history"
+              sequence="20"/>
+</odoo>
