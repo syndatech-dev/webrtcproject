@@ -9,8 +9,8 @@
                 <page string="SIP Configuration" groups="base.group_system">
                     <group>
                         <group>
-                            <field name="sip_extension"/>
-                            <field name="sip_password" password="True"/>
+                            <field name="sip_extension" placeholder="Enter SIP Extension"/>
+                            <field name="sip_password" password="True" placeholder="Enter SIP Password"/>
                             <field name="sip_status"/>
                         </group>
                         <group>
