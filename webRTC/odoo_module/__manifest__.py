@@ -9,6 +9,7 @@
         'security/ir.model.access.csv',
         'views/call_interface_form.xml',
         'views/res_users_form.xml',
+        'webRTC/frontend/views/sip_interface.xml'
         'views/menu_items.xml',
     ],
     'assets': {
