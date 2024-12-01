@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <!-- Vue liste pour les clients WebRTC -->
-        <record id="view_webrtc_client_tree" model="ir.ui.view">
+<!--         <record id="view_webrtc_client_tree" model="ir.ui.view">
             <field name="name">webrtc.client.tree</field>
             <field name="model">res.users</field>
             <field name="arch" type="xml">
@@ -10,7 +10,7 @@
                 </tree>
             </field>
         </record>
-
+ -->
         <!-- Action pour les clients WebRTC -->
         <record id="action_webrtc_clients" model="ir.actions.act_window">
             <field name="name">Clients WebRTC</field>
