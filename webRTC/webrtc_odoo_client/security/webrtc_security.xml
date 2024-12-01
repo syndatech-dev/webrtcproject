@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <!-- Groupe Utilisateur WebRTC -->
+        <record id="group_webrtc_user" model="res.groups">
+            <field name="name">Utilisateur WebRTC</field>
+            <field name="category_id" ref="base.module_category_tools"/>
+        </record>
+
+        <!-- Groupe Manager WebRTC -->
+        <record id="group_webrtc_manager" model="res.groups">
+            <field name="name">Manager WebRTC</field>
+            <field name="category_id" ref="base.module_category_tools"/>
+            <field name="implied_ids" eval="[(4, ref('group_webrtc_user'))]"/>
+        </record>
+
+        <!-- Règles d'accès pour l'historique des appels WebRTC -->
+        <record id="call_history_user_rule" model="ir.rule">
+            <field name="name">Historique des appels WebRTC - Utilisateur</field>
+            <field name="model_id" ref="model_webrtc_call_history"/>
+            <field name="groups" eval="[(4, ref('group_webrtc_user'))]"/>
+            <field name="domain_force">[('caller_id', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="call_history_manager_rule" model="ir.rule">
+            <field name="name">Historique des appels WebRTC - Manager</field>
+            <field name="model_id" ref="model_webrtc_call_history"/>
+            <field name="groups" eval="[(4, ref('group_webrtc_manager'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+    </data>
+</odoo>

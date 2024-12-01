@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <record id="webrtc.sip_domain" model="ir.config_parameter">
+            <field name="key">webrtc.sip_domain</field>
+            <field name="value">example.com</field>
+        </record>
+    </data>
+</odoo>

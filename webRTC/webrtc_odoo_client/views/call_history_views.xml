@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_call_history_tree" model="ir.ui.view">
+        <field name="name">call.history.tree</field>
+        <field name="model">webrtc.call.history</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="caller_id"/>
+                <field name="callee_id"/>
+                <field name="call_direction"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="duration"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_call_history_form" model="ir.ui.view">
+        <field name="name">call.history.form</field>
+        <field name="model">webrtc.call.history</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="caller_id"/>
+                        <field name="callee_id"/>
+                        <field name="call_direction"/>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="duration"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_call_history" model="ir.actions.act_window">
+        <field name="name">Historique des Appels</field>
+        <field name="res_model">webrtc.call.history</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_call_history_tree"/>
+    </record>
+
+    <menuitem id="menu_call_history_root" name="Historique des Appels" sequence="10"/>
+    <menuitem id="menu_call_history" name="Historique" parent="menu_call_history_root" action="action_call_history"/>
+</odoo>
