@@ -1,35 +1,12 @@
 <odoo>
     <data>
-        <!-- Vue formulaire pour les clients WebRTC -->
-        <record id="view_webrtc_client_form" model="ir.ui.view">
-            <field name="name">webrtc.client.form</field>
-            <field name="model">res.users</field>
-            <field name="arch" type="xml">
-                <form>
-                    <sheet>
-                        <group>
-                            <group>
-                                <field name="sip_extension"/>
-                                <field name="sip_password"/>
-                            </group>
-                            <group>
-                                <field name="sip_status"/>
-                                <field name="last_call_time"/>
-                            </group>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
         <!-- Vue liste pour les clients WebRTC -->
         <record id="view_webrtc_client_tree" model="ir.ui.view">
             <field name="name">webrtc.client.tree</field>
             <field name="model">res.users</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree string="Clients WebRTC">
                     <field name="name"/>
-                    <field name="sip_extension"/>
                 </tree>
             </field>
         </record>
@@ -39,6 +16,7 @@
             <field name="name">Clients WebRTC</field>
             <field name="res_model">res.users</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_webrtc_client_tree"/>
         </record>
 
         <!-- Menu pour les clients WebRTC -->
