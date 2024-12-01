@@ -41,7 +41,6 @@
         <record id="action_webrtc_clients" model="ir.actions.act_window">
             <field name="name">Clients WebRTC</field>
             <field name="res_model">res.users</field>
-            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_webrtc_client_tree"/>
         </record>
