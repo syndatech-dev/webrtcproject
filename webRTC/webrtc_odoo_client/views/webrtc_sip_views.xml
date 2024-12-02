@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
@@ -47,7 +46,15 @@
             <field name="view_id" ref="view_webrtc_client_tree"/>
         </record>
 
+        <!-- Menu principal WebRTC -->
+        <menuitem id="menu_webrtc_root" 
+                  name="WebRTC"
+                  sequence="10"/>
+
         <!-- Menu pour les clients WebRTC -->
-        <menuitem id="menu_webrtc_clients" name="Clients WebRTC" parent="menu_webrtc_root" action="action_webrtc_clients"/>
+        <menuitem id="menu_webrtc_clients" 
+                  name="Clients WebRTC" 
+                  parent="menu_webrtc_root" 
+                  action="action_webrtc_clients"/>
     </data>
 </odoo>
