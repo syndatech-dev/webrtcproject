@@ -1,6 +1,10 @@
 <odoo>
     <template id="webrtc_sip_client" name="WebRTC SIP Client">
         <t t-call="web.layout">
+
+ <script src="/synda_webrtc_sip_client/static/src/js/JsSIP.js"></script>
+                <script src="/synda_webrtc_sip_client/static/src/js/webrtc_client.js"></script>
+
             <div id="webrtc-client">
                 <h2>WebRTC SIP Client</h2>
                 <button id="register-sip" class="btn btn-primary">Register SIP</button>
