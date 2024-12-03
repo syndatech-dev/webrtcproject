@@ -1,0 +1,44 @@
+#webrtc-client {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#webrtc-client button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#webrtc-client button.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#webrtc-client button.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+#webrtc-client button.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+#webrtc-client button.btn-success:hover {
+    background-color: #218838;
+}
+
+#webrtc-client div {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
