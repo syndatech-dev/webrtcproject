@@ -1,15 +1,14 @@
 odoo.define('synda_webrtc_sip_client.webrtc_client', function(require) {
     "use strict";
 
-    const JsSIP = require('synda_webrtc_sip_client/static/src/js/JsSIP');
-
     class WebRTCClient {
         constructor() {
-            this.sipServer = 'wss://your-asterisk-server.com:5061/ws';
-            this.sipUser = 'user';
-            this.sipPassword = 'password';
+            this.sipServer = 'wss://your-asterisk-server.com:5061/ws'; // WebSocket URL
+            this.sipUser = 'user';        // Utilisateur SIP
+            this.sipPassword = 'password'; // Mot de passe SIP
             this.sipUA = null;
             this.registered = false;
+            this.currentSession = null;
 
             this.init();
         }
@@ -17,6 +16,7 @@ odoo.define('synda_webrtc_sip_client.webrtc_client', function(require) {
         init() {
             document.getElementById('register-sip').addEventListener('click', () => this.registerSIP());
             document.getElementById('make-call').addEventListener('click', () => this.makeCall());
+            document.getElementById('end-call').addEventListener('click', () => this.endCall());
         }
 
         registerSIP() {
@@ -39,6 +39,11 @@ odoo.define('synda_webrtc_sip_client.webrtc_client', function(require) {
                 document.getElementById('sip-status').innerText = 'Status: Not Registered';
             });
 
+            this.sipUA.on('registrationFailed', (error) => {
+                console.error('Registration failed:', error);
+                document.getElementById('sip-status').innerText = `Error: ${error.cause}`;
+            });
+
             this.sipUA.start();
         }
 
@@ -48,18 +53,32 @@ odoo.define('synda_webrtc_sip_client.webrtc_client', function(require) {
                 return;
             }
 
-            const target = 'sip:destination@yourdomain.com';
-            const session = this.sipUA.call(target, {
+            const target = 'sip:destination@yourdomain.com'; // Adresse SIP cible
+            this.currentSession = this.sipUA.call(target, {
                 mediaConstraints: { audio: true, video: false },
             });
 
-            session.on('accepted', () => {
+            this.currentSession.on('accepted', () => {
                 document.getElementById('call-status').innerText = 'Call Status: Active';
             });
 
-            session.on('ended', () => {
+            this.currentSession.on('ended', () => {
                 document.getElementById('call-status').innerText = 'Call Status: Ended';
             });
+
+            this.currentSession.on('failed', (error) => {
+                console.error('Call failed:', error);
+                document.getElementById('call-status').innerText = 'Call Status: Failed';
+            });
+        }
+
+        endCall() {
+            if (this.currentSession) {
+                this.currentSession.terminate();
+                document.getElementById('call-status').innerText = 'Call Status: Ended';
+            } else {
+                alert('No active call to end.');
+            }
         }
     }
 
