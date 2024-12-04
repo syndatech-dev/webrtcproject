@@ -3,19 +3,22 @@
         <t t-call="web.layout">
             <div id="webrtc-client">
                 <h2>WebRTC SIP Client</h2>
-                <script src="https://cdn.jsdelivr.net/npm/jssip@3.10.6/dist/jssip.min.js"></script>
+                
+                <!-- Champs de configuration -->
                 <div>
                     <label>SIP Server:</label>
-                    <input id="sip-server" type="text" placeholder="wss://sip.example.com:8089/ws">
+                    <input id="sip-server" type="text" placeholder="wss://sip.example.com:5061/ws" />
                 </div>
                 <div>
                     <label>Username:</label>
-                    <input id="sip-user" type="text" placeholder="SIP Username">
+                    <input id="sip-user" type="text" placeholder="SIP Username" />
                 </div>
                 <div>
                     <label>Password:</label>
-                    <input id="sip-password" type="password" placeholder="SIP Password">
+                    <input id="sip-password" type="password" placeholder="SIP Password" />
                 </div>
+
+                <!-- Boutons -->
                 <button id="register-sip" class="btn btn-primary">Register SIP</button>
                 <div id="sip-status">Status: Not Registered</div>
                 
