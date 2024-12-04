@@ -1,0 +1,96 @@
+<!-- frontend/views/sip_interface.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="webrtc_sip_client.PhoneInterface">
+        <div class="phone-interface">
+            <div class="phone-status-bar">
+                <span t-attf-class="status-indicator {{state.registrationStatus}}">
+                    <i t-if="state.registrationStatus === 'registered'" class="fa fa-check-circle"/>
+                    <i t-elif="state.registrationStatus === 'connecting'" class="fa fa-sync fa-spin"/>
+                    <i t-else="1" class="fa fa-times-circle"/>
+                </span>
+                <span class="status-text" t-esc="state.statusMessage"/>
+            </div>
+
+            <div class="phone-display">
+                <input type="text" 
+                       t-model="state.phoneNumber" 
+                       class="phone-number-input"
+                       placeholder="Enter phone number"
+                       t-att-disabled="state.inCall"/>
+                
+                <div t-if="state.inCall" class="call-timer">
+                    <span t-esc="state.callDuration"/>
+                </div>
+            </div>
+
+            <div class="phone-keypad" t-att-class="{ 'disabled': state.inCall }">
+                <div class="keypad-row" t-foreach="[['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9'], ['*', '0', '#']]" t-as="row">
+                    <button t-foreach="row" t-as="key"
+                            t-on-click="() => this.handleKeyPress(key)"
+                            class="keypad-button"
+                            t-att-disabled="state.inCall">
+                        <span class="key-number" t-esc="key"/>
+                        <span t-if="key !== '*' and key !== '#'" class="key-letters">
+                            <t t-esc="getKeyLetters(key)"/>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="phone-controls">
+                <button t-if="!state.inCall" 
+                        class="call-button"
+                        t-on-click="handleCall"
+                        t-att-disabled="!state.canMakeCall">
+                    <i class="fa fa-phone"/> Call
+                </button>
+                
+                <button t-if="state.inCall" 
+                        class="hangup-button"
+                        t-on-click="handleHangup">
+                    <i class="fa fa-phone-slash"/> End Call
+                </button>
+
+                <div t-if="state.inCall" class="call-actions">
+                    <button class="action-button" 
+                            t-att-class="{ 'active': state.isMuted }"
+                            t-on-click="handleMute">
+                        <i t-attf-class="fa fa-{{state.isMuted ? 'microphone-slash' : 'microphone'}}"/>
+                    </button>
+
+                    <button class="action-button"
+                            t-att-class="{ 'active': state.isHeld }"
+                            t-on-click="handleHold">
+                        <i class="fa fa-pause"/>
+                    </button>
+
+                    <button class="action-button"
+                            t-on-click="handleTransfer">
+                        <i class="fa fa-exchange-alt"/>
+                    </button>
+                </div>
+            </div>
+
+            <div t-if="state.showCallHistory" class="call-history">
+                <h3>Recent Calls</h3>
+                <div class="call-list">
+                    <div t-foreach="state.callHistory" t-as="call" 
+                         class="call-item"
+                         t-att-class="call.direction">
+                        <div class="call-info">
+                            <span class="phone-number" t-esc="call.phoneNumber"/>
+                            <span class="call-time" t-esc="formatCallTime(call.timestamp)"/>
+                        </div>
+                        <div class="call-duration" t-if="call.duration">
+                            <span t-esc="formatDuration(call.duration)"/>
+                        </div>
+                        <i t-if="call.direction === 'incoming'" 
+                           t-attf-class="fa fa-arrow-down {{call.missed ? 'missed' : ''}}"/>
+                        <i t-else="1" class="fa fa-arrow-up"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
