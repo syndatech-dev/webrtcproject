@@ -2,9 +2,12 @@
     <template id="webrtc_sip_client" name="WebRTC SIP Client">
         <t t-call="web.layout">
             <div id="webrtc-client">
+                <!-- Inclure JsSIP depuis le CDN -->
                 <script src="https://cdn.jsdelivr.net/npm/jssip@3.10.6/dist/jssip.min.js"></script>
+                <!-- Inclure votre script principal -->
                 <script src="/synda_webrtc_sip_client/static/src/js/webrtc_client.js"></script>
 
+                <!-- Interface utilisateur -->
                 <h2>WebRTC SIP Client</h2>
                 <div>
                     <label>SIP Server:</label>
@@ -18,10 +21,10 @@
                     <label>Password:</label>
                     <input id="sip-password" type="password" placeholder="SIP Password" />
                 </div>
-                
+
                 <button id="register-sip" class="btn btn-primary">Register SIP</button>
                 <div id="sip-status">Status: Not Registered</div>
-                
+
                 <button id="make-call" class="btn btn-success">Make Call</button>
                 <button id="end-call" class="btn btn-danger">End Call</button>
                 <div id="call-status">Call Status: Idle</div>
