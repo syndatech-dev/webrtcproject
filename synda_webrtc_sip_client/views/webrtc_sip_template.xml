@@ -6,7 +6,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/jssip@3.10.6/dist/jssip.min.js"></script>
                 <!-- Inclure votre script principal -->
                 <script src="js/webrtc_client.js"></script>
-
+                
                 <!-- Interface utilisateur -->
                 <h2>WebRTC SIP Client</h2>
                 <div>
