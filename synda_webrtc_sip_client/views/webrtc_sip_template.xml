@@ -2,10 +2,10 @@
     <template id="webrtc_sip_client" name="WebRTC SIP Client">
         <t t-call="web.layout">
             <div id="webrtc-client">
-                <h2>WebRTC SIP Client</h2>
                 <script src="https://cdn.jsdelivr.net/npm/jssip@3.10.6/dist/jssip.min.js"></script>
                 <script src="/synda_webrtc_sip_client/static/src/js/webrtc_client.js"></script>
-                
+
+                <h2>WebRTC SIP Client</h2>
                 <div>
                     <label>SIP Server:</label>
                     <input id="sip-server" type="text" placeholder="wss://sip.example.com:5061/ws" />
