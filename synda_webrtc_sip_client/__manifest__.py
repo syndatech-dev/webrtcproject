@@ -12,7 +12,7 @@
     ],
     'assets': {
         'web.assets_frontend': [
-            'synda_webrtc_sip_client/static/src/js/webrtc_client.js',
+            'synda_webrtc_sip_client/views/js/webrtc_client.js',
             'synda_webrtc_sip_client/static/src/css/webrtc_client.css',
         ],
     },
