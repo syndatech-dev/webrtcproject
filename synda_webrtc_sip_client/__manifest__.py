@@ -9,6 +9,8 @@
     'depends': ['base', 'web'],
     'data': [
         'views/webrtc_sip_template.xml',
+        'views/webrtc_sip_action.xml',
+        'views/webrtc_sip_menu.xml',
     ],
     'assets': {
         'web.assets_frontend': [

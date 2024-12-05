@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem id="menu_webrtc_sip_root" name="WebRTC" sequence="10" />
+    <menuitem id="menu_webrtc_sip_client" name="SIP Client"
+              parent="menu_webrtc_sip_root"
+              action="action_webrtc_sip_client" sequence="20" />
+</odoo>
