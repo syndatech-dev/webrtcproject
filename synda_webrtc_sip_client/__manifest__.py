@@ -15,7 +15,7 @@
     'assets': {
         'web.assets_frontend': [
             'views/js/webrtc_client.js',
-            'static/src/js/webrtc_sip_action.js',
+            'views/src/js/webrtc_sip_action.js',
             'static/src/css/webrtc_client.css',
         ],
     },
