@@ -12,7 +12,7 @@
                 <h2>WebRTC SIP Client</h2>
                 <div>
                     <label>SIP Server:</label>
-                    <input id="sip-server" type="text" placeholder="wss://sip.example.com:5061/ws" />
+                    <input id="sip-server" type="text" placeholder="wss://sip.example.com:8088/ws" />
                 </div>
                 <div>
                     <label>Username:</label>
