@@ -11,8 +11,7 @@
         - Integration with FreePBX systems.
     """,
     'author': 'Synda Tech',
-    'website': 'https://syndatech.example.com',  # Ajoutez un site si applicable
-    'license': 'LGPL-3',
+    'website': 'https://syndatech.com',
     'depends': [
         'base',  # Base Odoo module
         'web',   # Module web pour les actions frontales
