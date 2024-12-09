@@ -1,85 +1,100 @@
-odoo.define('synda_webrtc_sip_client.webrtc_actions', function (require) {
+odoo.define('synda_webrtc_sip_client.webrtc_sip_action', function (require) {
     "use strict";
 
     // Charger les modules nécessaires
     const AbstractAction = require('web.AbstractAction');
     const core = require('web.core');
+    const qweb = core.qweb;
 
-    // Vérifier que les modules requis sont disponibles
+    // Vérification des modules
     if (!AbstractAction || !core) {
         console.error("Les modules requis ('web.AbstractAction' ou 'web.core') sont introuvables.");
         return;
     }
 
-    const qweb = core.qweb;
-
-    // --- Action principale : WebRTC SIP Client ---
+    /**
+     * Action principale : WebRTC SIP Client
+     */
     const WebRTCSIPClient = AbstractAction.extend({
-        template: 'webrtc_sip_client', // Modèle défini dans webrtc_sip_template.xml
+        template: 'webrtc_sip_client', // Correspond à l'ID défini dans webrtc_sip_template.xml
 
         /**
          * Démarre l'action principale.
-         * @returns {Promise} Promise de l'initialisation.
+         * @returns {Promise} Une promesse qui se résout après le chargement.
          */
         start: function () {
-            console.log("[WebRTCSIPClient] Chargement de l'action principale WebRTC SIP Client.");
-            // Logique supplémentaire si nécessaire
+            console.log("[WebRTCSIPClient] Lancement de l'interface principale du WebRTC SIP Client.");
+            // Ajoutez ici toute logique nécessaire au démarrage de l'interface
             return this._super.apply(this, arguments);
         },
     });
 
-    // Enregistrer l'action principale
+    // Enregistrement de l'action principale
     core.action_registry.add('webrtc.sip.client', WebRTCSIPClient);
 
-    // --- Action : Enregistrer SIP ---
+    /**
+     * Action : Enregistrer un compte SIP
+     */
     const RegisterSIPAction = AbstractAction.extend({
+        template: false, // Pas de template spécifique pour cette action
+
         /**
-         * Démarre l'action d'enregistrement SIP.
-         * @returns {Promise} Promise de l'initialisation.
+         * Exécute l'enregistrement SIP.
+         * @returns {Promise} Une promesse qui se résout après l'exécution.
          */
         start: function () {
-            console.log("[RegisterSIPAction] Exécution de l'action d'enregistrement SIP.");
-            // Implémenter ici la logique pour enregistrer un utilisateur SIP
+            console.log("[RegisterSIPAction] Début de l'enregistrement SIP.");
+            // Ajoutez ici votre logique d'enregistrement SIP
             return this._super.apply(this, arguments);
         },
     });
 
-    // Enregistrer l'action d'enregistrement SIP
+    // Enregistrement de l'action d'enregistrement SIP
     core.action_registry.add('webrtc.sip.register', RegisterSIPAction);
 
-    // --- Action : Passer un appel SIP ---
+    /**
+     * Action : Passer un appel SIP
+     */
     const MakeCallAction = AbstractAction.extend({
+        template: false, // Pas de template spécifique pour cette action
+
         /**
-         * Démarre l'action pour passer un appel SIP.
-         * @returns {Promise} Promise de l'initialisation.
+         * Exécute un appel SIP.
+         * @returns {Promise} Une promesse qui se résout après l'exécution.
          */
         start: function () {
-            console.log("[MakeCallAction] Exécution de l'action pour passer un appel SIP.");
-            // Implémenter ici la logique pour passer un appel SIP
+            console.log("[MakeCallAction] Début d'un appel SIP.");
+            // Ajoutez ici votre logique pour initier un appel SIP
             return this._super.apply(this, arguments);
         },
     });
 
-    // Enregistrer l'action pour passer un appel SIP
+    // Enregistrement de l'action pour passer un appel SIP
     core.action_registry.add('webrtc.sip.call', MakeCallAction);
 
-    // --- Action : Terminer un appel SIP ---
+    /**
+     * Action : Terminer un appel SIP
+     */
     const EndCallAction = AbstractAction.extend({
+        template: false, // Pas de template spécifique pour cette action
+
         /**
-         * Démarre l'action pour terminer un appel SIP.
-         * @returns {Promise} Promise de l'initialisation.
+         * Termine un appel SIP.
+         * @returns {Promise} Une promesse qui se résout après l'exécution.
          */
         start: function () {
-            console.log("[EndCallAction] Exécution de l'action pour terminer un appel SIP.");
-            // Implémenter ici la logique pour terminer un appel SIP
+            console.log("[EndCallAction] Fin d'un appel SIP.");
+            // Ajoutez ici votre logique pour terminer un appel SIP
             return this._super.apply(this, arguments);
         },
     });
 
-    // Enregistrer l'action pour terminer un appel SIP
+    // Enregistrement de l'action pour terminer un appel SIP
     core.action_registry.add('webrtc.sip.end_call', EndCallAction);
 
-    // Retourner les actions pour usage éventuel ailleurs
+    /**
+     * Retourne les actions pour usage éventuel ailleurs
+     */
     return {
         WebRTCSIPClient: WebRTCSIPClient,
         RegisterSIPAction: RegisterSIPAction,

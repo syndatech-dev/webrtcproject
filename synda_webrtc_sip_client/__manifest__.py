@@ -23,12 +23,12 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'synda_webrtc_sip_client/static/src/js/webrtc_sip_action.js',  # Actions JS (enregistre les actions)
-            'synda_webrtc_sip_client/static/src/js/webrtc_client.js',      # Client WebRTC
-            'synda_webrtc_sip_client/static/src/css/webrtc_client.css',    # Styles CSS personnalisés
+            'static/src/js/webrtc_sip_action.js',  # Actions JS (enregistre les actions)
+            'static/src/js/webrtc_client.js',      # Client WebRTC
+            'static/src/css/webrtc_client.css',    # Styles CSS personnalisés
         ],
         'web.assets_qweb': [
-            'synda_webrtc_sip_client/views/webrtc_sip_template.xml',  # Inclure uniquement les templates QWeb
+            'views/webrtc_sip_template.xml',  # Inclure uniquement les templates QWeb
         ],
     },
     'installable': True,
