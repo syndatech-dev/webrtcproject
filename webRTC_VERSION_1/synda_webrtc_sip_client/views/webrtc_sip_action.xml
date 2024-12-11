@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <!-- Action principale -->
+        <record id="action_webrtc_sip_client" model="ir.actions.client">
+            <field name="name">WebRTC SIP Client</field>
+            <field name="tag">webrtc.sip.client</field>
+        </record>
+
+        <!-- Action pour enregistrer SIP -->
+        <record id="action_webrtc_sip_register" model="ir.actions.client">
+            <field name="name">Register SIP</field>
+            <field name="tag">webrtc.sip.register</field>
+        </record>
+
+        <!-- Action pour initier un appel -->
+        <record id="action_webrtc_sip_call" model="ir.actions.client">
+            <field name="name">Make Call</field>
+            <field name="tag">webrtc.sip.call</field>
+        </record>
+
+        <!-- Action pour terminer un appel -->
+        <record id="action_webrtc_sip_end_call" model="ir.actions.client">
+            <field name="name">End Call</field>
+            <field name="tag">webrtc.sip.end_call</field>
+        </record>
+    </data>
+</odoo>
