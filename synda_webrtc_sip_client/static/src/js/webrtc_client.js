@@ -1,4 +1,4 @@
-odoo.define('synda_webrtc_sip_client.webrtc_client', function(require) {
+odoo.define('webrtc_client', function(require) {
     "use strict";
 
     class WebRTCClient {

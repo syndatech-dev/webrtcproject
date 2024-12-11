@@ -1,4 +1,4 @@
-odoo.define('synda_webrtc_sip_client.webrtc_sip_action', function (require) {
+odoo.define('webrtc_sip_action', function (require) {
     "use strict";
 
     // Charger les modules nécessaires
