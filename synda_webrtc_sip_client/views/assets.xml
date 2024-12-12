@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <template id="synda_webrtc_assets" inherit_id="web.assets_backend">
+        <template id="synda_webrtc_assets">
             <xpath expr="head" position="inside">
                 <link rel="stylesheet" type="text/css" href="/synda_webrtc_sip_client/static/src/css/style.css"/>
             </xpath>

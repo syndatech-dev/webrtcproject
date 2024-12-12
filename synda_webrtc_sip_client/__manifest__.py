@@ -14,7 +14,7 @@
     'depends': ['base', 'web'],
     'data': [
         'security/ir.model.access.csv',
-        'views/assets.xml',
+        # 'views/assets.xml',
         'views/synda_sip_client_views.xml',
     ],
     'assets': {
