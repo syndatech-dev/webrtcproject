@@ -1,19 +1,21 @@
 {
     'name': 'Synda WebRTC SIP Client',
     'version': '1.0',
-    'summary': 'Module pour enregistrer et gérer des clients SIP',
-    'description': 'Une interface graphique pour ajouter, modifier et gérer des clients SIP.',
+    'summary': 'Module for managing SIP clients in Odoo',
+    'category': 'Tools',
     'author': 'Foko',
+    'website': 'http://syndatech.com',
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
+        'views/assets.xml',
         'views/synda_sip_client_views.xml',
     ],
     'assets': {
         'web.assets_backend': [
-            'synda_webrtc_sip_client/static/src/css/style.css',
+            '/synda_webrtc_sip_client/static/src/css/style.css',
         ],
     },
-    'installable': True,
     'application': True,
+    'installable': True,
 }

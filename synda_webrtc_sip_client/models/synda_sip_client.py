@@ -1,11 +1,10 @@
 from odoo import models, fields
 
-class SyndaSIPClient(models.Model):
+class SyndaSipClient(models.Model):
     _name = 'synda.sip.client'
-    _description = 'Client SIP'
+    _description = 'SIP Client'
 
-    name = fields.Char(string="Nom", required=True)
-    username = fields.Char(string="Nom d'utilisateur", required=True)
-    secret = fields.Char(string="Mot de passe", required=True)
-    host = fields.Char(string="Hôte", required=True)
-    context = fields.Char(string="Contexte", required=True)
+    name = fields.Char(string='Name', required=True)
+    sip_username = fields.Char(string='SIP Username', required=True)
+    sip_password = fields.Char(string='SIP Password', required=True)
+    server_address = fields.Char(string='Server Address')

@@ -1,41 +1,41 @@
 <odoo>
-    <data>
-        <menuitem id="menu_sip_client_root" name="WebRTC SIP Client" sequence="10" />
-        <menuitem id="menu_sip_client" name="Clients SIP" parent="menu_sip_client_root" action="action_sip_client_list" sequence="20" />
-        <record id="action_sip_client_list" model="ir.actions.act_window">
-            <field name="name">Clients SIP</field>
-            <field name="res_model">synda.sip.client</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-        <record id="view_sip_client_tree" model="ir.ui.view">
-            <field name="name">synda.sip.client.tree</field>
-            <field name="model">synda.sip.client</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-                    <field name="username"/>
-                    <field name="secret"/>
-                    <field name="host"/>
-                    <field name="context"/>
-                </tree>
-            </field>
-        </record>
-        <record id="view_sip_client_form" model="ir.ui.view">
-            <field name="name">synda.sip.client.form</field>
-            <field name="model">synda.sip.client</field>
-            <field name="arch" type="xml">
-                <form string="Client SIP">
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="username"/>
-                            <field name="secret" password="True"/>
-                            <field name="host"/>
-                            <field name="context"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-    </data>
+    <record id="view_synda_sip_client_form" model="ir.ui.view">
+        <field name="name">synda.sip.client.form</field>
+        <field name="model">synda.sip.client</field>
+        <field name="arch" type="xml">
+            <form string="SIP Client">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <field name="sip_username"/>
+                        <field name="sip_password" password="True"/>
+                        <field name="server_address"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_synda_sip_client_tree" model="ir.ui.view">
+        <field name="name">synda.sip.client.tree</field>
+        <field name="model">synda.sip.client</field>
+        <field name="arch" type="xml">
+            <tree string="SIP Clients">
+                <field name="name"/>
+                <field name="sip_username"/>
+                <field name="server_address"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_synda_sip_client_root" name="SIP Client" sequence="1"/>
+    <menuitem id="menu_synda_sip_client" name="Clients" parent="menu_synda_sip_client_root" action="action_synda_sip_client"/>
+
+    <record id="action_synda_sip_client" model="ir.actions.act_window">
+        <field name="name">SIP Clients</field>
+        <field name="res_model">synda.sip.client</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 </odoo>

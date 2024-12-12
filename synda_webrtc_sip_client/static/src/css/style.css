@@ -1,19 +1,31 @@
-.o_form_sheet {
+/* Style général pour le module */
+.o_form_view {
     background-color: #f7f7f7;
-    border-radius: 10px;
     padding: 20px;
-    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Champs de formulaire */
 .o_field_widget {
-    margin-bottom: 15px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
 }
 
-.o_form_label {
-    font-weight: bold;
-    color: #555;
+/* Boutons */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.tree_view {
-    background-color: #f4f4f4;
+button:hover {
+    background-color: #0056b3;
 }

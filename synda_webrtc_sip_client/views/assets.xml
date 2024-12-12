@@ -1,0 +1,7 @@
+<odoo>
+    <template id="assets_backend" name="Synda WebRTC SIP Client Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="/synda_webrtc_sip_client/static/src/css/style.css"/>
+        </xpath>
+    </template>
+</odoo>
