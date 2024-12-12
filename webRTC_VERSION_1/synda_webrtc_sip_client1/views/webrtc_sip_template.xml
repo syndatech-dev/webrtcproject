@@ -1,0 +1,32 @@
+<odoo>
+    <template id="webrtc_sip_client" name="WebRTC SIP Client">
+        <t t-call="web.layout">
+            <div id="webrtc-client" class="container">
+                <h2 class="text-center">WebRTC SIP Client</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="sip-server">SIP Server</label>
+                            <input id="sip-server" class="form-control" type="text" placeholder="wss://sip.example.com:5061/ws"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="sip-user">Username</label>
+                            <input id="sip-user" class="form-control" type="text" placeholder="SIP Username"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="sip-password">Password</label>
+                            <input id="sip-password" class="form-control" type="password" placeholder="SIP Password"/>
+                        </div>
+
+                        <button id="register-sip" class="btn btn-primary btn-block">Register SIP</button>
+                        <div id="sip-status" class="alert alert-info mt-3">Status: Not Registered</div>
+
+                        <button id="make-call" class="btn btn-success btn-block mt-3">Make Call</button>
+                        <button id="end-call" class="btn btn-danger btn-block mt-3">End Call</button>
+                        <div id="call-status" class="alert alert-secondary mt-3">Call Status: Idle</div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

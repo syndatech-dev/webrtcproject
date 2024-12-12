@@ -1,7 +1,6 @@
-
 body {
-    /* background: url('/synda_webrtc_sip_client/static/src/img/background.jpg') no-repeat center center fixed; */
-    /* background-size: cover; */
+    background: url('/synda_webrtc_sip_client/static/src/img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 #webrtc-client {
@@ -19,6 +18,10 @@ h2 {
 
 .card {
     border: none;
+}
+
+.card-body {
+    padding: 30px;
 }
 
 .btn {
