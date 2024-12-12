@@ -2,24 +2,21 @@
     'name': 'WebRTC SIP Client',
     'version': '1.0.0',
     'category': 'Communication',
-    'summary': 'WebRTC SIP Client for Odoo',
+    'summary': 'Interface de base pour un client WebRTC SIP dans Odoo',
     'description': """
-        Un module Odoo permettant l'intégration d'un client SIP basé sur WebRTC.
-        - Enregistrement des comptes SIP.
-        - Gestion des appels.
+        Ce module fournit une interface utilisateur de base pour un client WebRTC SIP sans les fonctionnalités.
     """,
     'author': 'Foko Junior',
     'website': 'https://syndatech.com',
     'license': 'LGPL-3',
     'depends': ['base', 'web'],
     'data': [
-        'security/ir.model.access.csv',
-        # 'views/assets.xml',
-        'views/synda_sip_client_views.xml',
+        'views/webrtc_sip_menu.xml',
+        'views/webrtc_sip_template.xml',
     ],
     'assets': {
         'web.assets_backend': [
-           '/synda_webrtc_sip_client/static/src/css/style.css',
+            'synda_webrtc_sip_client/static/src/css/webrtc_sip_client.css',
         ],
     },
     'installable': True,
