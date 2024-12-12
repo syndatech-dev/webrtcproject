@@ -3,7 +3,6 @@
         <field name="name">synda.sip.client.form</field>
         <field name="model">synda.sip.client</field>
         <field name="arch" type="xml">
-        <link rel="stylesheet" type="text/css" href="/synda_webrtc_sip_client/static/src/css/style.css"/>
             <form string="SIP Client">
                 <sheet>
                     <div class="oe_title">
