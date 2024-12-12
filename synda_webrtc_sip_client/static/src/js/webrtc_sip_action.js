@@ -7,7 +7,7 @@ odoo.define('synda_webrtc_sip_client.webrtc_sip_action', function (require) {
 
     // Définir l'action principale
     const WebRTCSIPClient = AbstractAction.extend({
-        template: 'webrtc_sip_client', // Nom du template défini dans le fichier XML
+        template: 'webrtc_sip_client', 
 
         start: function () {
             console.log("WebRTC SIP Client action loaded.");
