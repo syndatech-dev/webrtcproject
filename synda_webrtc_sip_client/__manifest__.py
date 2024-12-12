@@ -5,7 +5,7 @@
     'category': 'Tools',
     'author': 'Foko',
     'website': 'http://syndatech.com',
-    'depends': ['base'],
+    'depends': ['base', 'web'],
     'data': [
         'security/ir.model.access.csv',
         'views/assets.xml',
