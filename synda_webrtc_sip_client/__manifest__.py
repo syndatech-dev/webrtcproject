@@ -4,7 +4,7 @@
     'category': 'Communication',
     'summary': 'Interface de base pour un client WebRTC SIP dans Odoo',
     'description': """
-        Ce module fournit une interface utilisateur de base pour un client WebRTC SIP sans les fonctionnalités.
+        Ce module fournit une interface utilisateur de base pour un client WebRTC SIP.
     """,
     'author': 'Foko Junior',
     'website': 'https://syndatech.com',
