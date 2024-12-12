@@ -1,4 +1,4 @@
-odoo.define('synda_webrtc_sip_client.webrtc_sip_view', function (require) {
+odoo.define('synda_webrtc_sip_client.webrtc_sip_view.js', function (require) {
     "use strict";
 
     const { Component } = owl;
