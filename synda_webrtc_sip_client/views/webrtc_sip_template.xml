@@ -1,24 +1,49 @@
 <odoo>
-    <template id="webrtc_sip_view" name="WebRTC SIP View">
+    <template id="webrtc_sip_client" name="WebRTC SIP Client">
+        <!-- Appel du layout principal d'Odoo -->
         <t t-call="web.layout">
-            <div id="webrtc-client" class="container">
-                <h2 class="text-center">WebRTC SIP Client</h2>
-                <div class="card">
+            <div class="o_webrtc_sip_client container mt-5">
+                <!-- Titre principal -->
+                <h1 class="text-center text-primary">WebRTC SIP Client</h1>
+                
+                <!-- Carte principale -->
+                <div class="card shadow-lg mt-4">
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="sip-server">SIP Server</label>
-                            <input id="sip-server" class="form-control" type="text" placeholder="wss://sip.example.com:5061/ws"/>
+                        <!-- Introduction -->
+                        <p class="text-center text-muted">
+                            Bienvenue dans l'interface utilisateur WebRTC SIP Client. Cette interface est prête pour vos besoins en communication SIP.
+                        </p>
+
+                        <!-- Formulaire SIP -->
+                        <form id="sip-form" class="mt-4">
+                            <div class="mb-3">
+                                <label for="sip-server" class="form-label">SIP Server</label>
+                                <input id="sip-server" name="sip-server" class="form-control" type="text" placeholder="wss://sip.example.com:5061/ws" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sip-user" class="form-label">SIP Username</label>
+                                <input id="sip-user" name="sip-user" class="form-control" type="text" placeholder="Votre nom d'utilisateur SIP" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sip-password" class="form-label">SIP Password</label>
+                                <input id="sip-password" name="sip-password" class="form-control" type="password" placeholder="Votre mot de passe SIP" required/>
+                            </div>
+
+                            <!-- Boutons d'action -->
+                            <div class="text-center">
+                                <button id="register-sip" type="button" class="btn btn-primary me-2">Register</button>
+                                <button id="make-call" type="button" class="btn btn-success me-2">Make Call</button>
+                                <button id="end-call" type="button" class="btn btn-danger">End Call</button>
+                            </div>
+                        </form>
+
+                        <!-- Statuts -->
+                        <div class="alert alert-info mt-4" role="alert" id="sip-status">
+                            Status: Not Registered
                         </div>
-                        <div class="form-group">
-                            <label for="sip-user">Username</label>
-                            <input id="sip-user" class="form-control" type="text" placeholder="SIP Username"/>
+                        <div class="alert alert-secondary" role="alert" id="call-status">
+                            Call Status: Idle
                         </div>
-                        <div class="form-group">
-                            <label for="sip-password">Password</label>
-                            <input id="sip-password" class="form-control" type="password" placeholder="SIP Password"/>
-                        </div>
-                        <button id="register-sip" class="btn btn-primary btn-block">Register</button>
-                        <div id="sip-status" class="alert alert-info mt-3">Status: Not Registered</div>
                     </div>
                 </div>
             </div>
