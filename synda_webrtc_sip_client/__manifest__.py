@@ -14,6 +14,12 @@
         'views/webrtc_sip_menu.xml',
         'views/webrtc_sip_template.xml',
     ],
+
+    'assets': {
+        'web.assets_backend': [
+            'synda_webrtc_sip_client/static/src/css/webrtc_sip_client.css',
+        ],
+    },
     'installable': True,
     'application': True,
     'auto_install': False,
