@@ -1,0 +1,17 @@
+<odoo>
+<template id="sip_control_view" name="SIP Control View">
+  <t t-call="web.layout">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h4>Contrôle SIP</h4>
+        </div>
+        <div class="card-body">
+          <button id="register-sip" class="btn btn-primary btn-block">Enregistrer SIP</button>
+          <div id="sip-status" class="mt-3">Statut: Non enregistré</div>
+        </div>
+      </div>
+    </div>
+  </t>
+</template>
+</odoo>

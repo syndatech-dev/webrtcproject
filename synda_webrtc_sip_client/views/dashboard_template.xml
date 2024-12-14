@@ -1,0 +1,41 @@
+<odoo>
+<template id="dashboard_view" name="Dashboard View">
+  <t t-call="web.layout">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h4>Tableau de bord</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Appels Réussis</h5>
+                  <p class="card-text" id="successful-calls">0</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Durée Totale des Appels</h5>
+                  <p class="card-text" id="total-call-duration">0 min</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Dernier Appel</h5>
+                  <p class="card-text" id="last-call">Aucun appel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </t>
+</template>
+</odoo>

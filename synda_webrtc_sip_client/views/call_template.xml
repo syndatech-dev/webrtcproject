@@ -1,0 +1,17 @@
+<odoo>
+<template id="call_view" name="Call Management View">
+  <t t-call="web.layout">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h4>Appels</h4>
+        </div>
+        <div class="card-body">
+          <button id="make-call" class="btn btn-success btn-block mb-3">Passer un appel</button>
+          <div id="call-status">Statut de l'appel: Inactif</div>
+        </div>
+      </div>
+    </div>
+  </t>
+</template>
+</odoo>
