@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="card">
         <div class="card-header">
-          <h4>Appels</h4>
+          <h4>Calls</h4>
         </div>
         <div class="card-body">
           <button id="make-call" class="btn btn-success btn-block mb-3">Passer un appel</button>
