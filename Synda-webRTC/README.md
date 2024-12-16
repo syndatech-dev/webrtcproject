@@ -29,8 +29,8 @@ node server/server.js
 
 ### 6. Accédez aux interfaces
 ```
-- Admin: [http://localhost:3000/admin](http://localhost:3000/admin)
+- Admin: http://localhost:3000/admin
 ```
 ```
-- Client: [http://localhost:3000/client](http://localhost:3000/client)
+- Client: http://localhost:3000/client
 ```
