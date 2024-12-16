@@ -1,6 +1,5 @@
 
-```markdown
-# WebRTC Project
+### WebRTC Project
 
 ## Étapes pour créer le projet
 
@@ -10,7 +9,7 @@ Assurez-vous que Node.js est installé sur votre machine. Vous pouvez le téléc
 ### 2. cloner le projet
  
 ```bash
-cd webrtc-project
+cd Synda-webRTC
 ```
 
 ### 3. Initialiser le projet Node.js
