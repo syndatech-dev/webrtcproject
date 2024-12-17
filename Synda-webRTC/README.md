@@ -22,13 +22,21 @@ npm init -y
 ```bash
 npm install express socket.io bcrypt dotenv
 ```
+### installer les cookies
+```bash
+npm install cookie-parser
 
+npm install express socket.io express-session body-parser
+
+```
 ### 5. Lancer le serveur
 ```bash
 node server/server.js
 ```
 
+
+
 ### 6. Accédez aux interfaces
-- Admin: [http://localhost:3000/admin](http://localhost:3000/admin)
-- Client: [http://localhost:3000/client](http://localhost:3000/client)
+- Admin: [http://localhost:3000](http://localhost:3000)
+- Client: [http://localhost:3000](http://localhost:3000)
 ```
