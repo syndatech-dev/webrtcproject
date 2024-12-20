@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "$2b$10$gGJf8zYjD0JTPvF9btYJOembAAdzUNS7mD8sZP0RblJzO3p7rhY4C",
+    "role": "admin"
+  },
+  {
+    "id": "1734713432220",
+    "username": "junior1",
+    "password": "$2b$10$unAx2QsxHto5flwWudEFeObyaZ5jq5x1VxftwBc2WUKADHLEgZ.Q6",
+    "role": "client",
+    "createdAt": "2024-12-20T16:50:32.220Z",
+    "history": []
+  },
+  {
+    "id": "1734714206993",
+    "username": "admin1",
+    "password": "$2b$10$apg8olFtkrMIiQS.FACtCOknO8LPnx1/kyn8.b7MVkuXr4PrMYKii",
+    "role": "admin",
+    "createdAt": "2024-12-20T17:03:26.993Z",
+    "history": []
+  }
+]

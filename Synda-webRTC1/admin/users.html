@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des utilisateurs</title>
+    <link rel="stylesheet" href="../assetsAdmin/admin/css/admin.css">
+</head>
+<body>
+    <header>
+        <h1>Gestion des utilisateurs</h1>
+        <nav>
+            <a href="/admin/dashboard">Dashboard</a>
+            <a href="/admin/calls">Historique des appels</a>
+            <a href="/logout">Déconnexion</a>
+        </nav>
+    </header>
+    <main>
+        <table id="usersTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom d'utilisateur</th>
+                    <th>Rôle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Données remplies dynamiquement -->
+            </tbody>
+        </table>
+    </main>
+    <script>
+        fetch('/admin/api/users')
+            .then(response => response.json())
+            .then(users => {
+                const tableBody = document.querySelector('#usersTable tbody');
+                users.forEach(user => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${user.id}</td>
+                        <td>${user.username}</td>
+                        <td>${user.role}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>

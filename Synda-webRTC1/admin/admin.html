@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Synda WebRTC</title>
+    <link rel="stylesheet" href="../assetsAdmin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Synda Admin</h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-users"></i> Utilisateurs</a></li>
+                    <li><a href="#"><i class="fas fa-history"></i> Historique des appels</a></li>
+                    <li><a href="#"><i class="fas fa-cogs"></i> Paramètres</a></li>
+                    <li><a href="/api/auth/logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <header>
+                <h1>Tableau de bord</h1>
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin</span>
+                </div>
+            </header>
+
+            <section class="content">
+                <!-- Utilisateurs -->
+                <div class="card">
+                    <h2>Utilisateurs</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom d'utilisateur</th>
+                                <th>Rôle</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <!-- Les utilisateurs seront chargés via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Historique des appels -->
+                <div class="card">
+                    <h2>Historique des appels</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Appelant</th>
+                                <th>Destinataire</th>
+                                <th>Début</th>
+                                <th>Fin</th>
+                            </tr>
+                        </thead>
+                        <tbody id="callHistoryTableBody">
+                            <!-- L'historique des appels sera chargé via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../assetsAdmin/js/admin.js"></script>
+</body>
+</html>
