@@ -1,0 +1,32 @@
+body {
+    background-image: linear-gradient(to bottom, #9f0e0e, rgba(159, 14, 14, 0.651)), white;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Si vous voulez appliquer le dégradé à la carte */
+.card {
+    background-image: linear-gradient(to bottom, #9f0e0e, rgb(159, 14, 14)), white;
+}
+
+.btn-primary {
+    background-color: #9f0e0e;
+    border-color: #9f0e0e;
+}
+
+.btn-primary:hover {
+    background-color: #8f0d0d;
+    border-color: #8f0d0d;
+}
+
+/* Assurez-vous que l'image est visible par défaut */
+#myImage {
+    display: block; /* ou inline-block si elle est en ligne */
+}
+
+/* Cacher l'image pour les écrans de téléphones */
+@media (max-width: 767px) {
+    #myImage {
+        display: none;
+    }
+}

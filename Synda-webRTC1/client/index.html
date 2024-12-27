@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synda-WebRTC | Welcome</title>
+    <link rel="icon" type="image/png" href="../assets/img/logoS.png">
+    <!-- Lien vers le CDN de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Style personnalisé -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('https://tragofone.com/wp-content/uploads/2021/05/Importance_of_webRTC-750x394.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .blur-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            z-index: -1; /* Maintenir l'effet de flou en arrière-plan */
+        }
+
+        #logoutBtn {
+            border: 2px solid #dc3545;
+            background-color: #dc3545;
+            color: #ffffff;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #logoutBtn:hover {
+            background-color: #ffffff;
+            color: #701921;
+        }
+        img {
+            width: 100px;
+        }
+        .container-main {
+            padding: 30px 0;
+            background: rgba(43, 31, 31, 0.4711);
+            border-radius: 10px;
+            margin: auto;
+            height: 20rem; /* Adjusted height for the small block */
+            max-width: 45%; /* Set a max-width for the block */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        footer {
+            background-color: rgba(52, 58, 64, 0.9);
+            color: white;
+        }
+        .logout-btn {
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            color: #ffc107;
+        }
+        .lead{
+            color: white !important;
+        }
+        .me-2:hover{
+            background-color: transparent !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Superposition pour l'effet de flou -->
+    <div class="blur-overlay"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold text-primary" href="#"><img src="../assets/img/logoS.png" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup.html">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/login.html">Connexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="container container-main text-center">
+        <h1 class="display-4 text-primary">Welcome to Synda - webRTC</h1>
+        <p class="lead text-muted">
+            Accédez à votre compte pour utiliser toutes les fonctionnalités de Synda - WebRTC.
+        </p>
+        <div class="mt-4">
+            <a href="/signup.html" id="logoutBtn" class="btn btn-primary btn-lg me-2">Inscription</a>
+            <a href="/login.html" class="btn btn-outline-primary btn-lg">Connexion</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Synda - WebRTC. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Script Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/authentication/logout.js"></script>
+</body>
+</html>
