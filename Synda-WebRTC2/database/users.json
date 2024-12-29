@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1734714206993",
+    "username": "admin1",
+    "password": "$2b$10$apg8olFtkrMIiQS.FACtCOknO8LPnx1/kyn8.b7MVkuXr4PrMYKii",
+    "role": "admin",
+    "createdAt": "2024-12-20T17:03:26.993Z",
+    "history": []
+  },
+  {
+    "id": "1735081637304",
+    "username": "toto",
+    "password": "$2b$10$dTewp5085vGGkIonmANbWOV23e.w1paC/TOK6EyXzzz.D0GxIN2VC",
+    "role": "client",
+    "createdAt": "2024-12-24T23:07:17.304Z",
+    "history": []
+  },
+  {
+    "id": "1735460281757",
+    "username": "tutu",
+    "password": "$2a$10$6s7D229xUjFGWEhGUCGq8.wXL9QrwK.BYpphJZFIL7RPUYYYoN/4y",
+    "role": "client",
+    "createdAt": "2024-12-29T08:18:01.757Z",
+    "history": []
+  },
+  {
+    "id": "1735462034252",
+    "username": "tete",
+    "password": "$2a$10$f1AFv1CoS25afWbpwbERsekjTCw3kv.N2P4cdcfe89rMP1nzP9CSm",
+    "role": "client",
+    "createdAt": "2024-12-29T08:47:14.252Z",
+    "history": []
+  }
+]

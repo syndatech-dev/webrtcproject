@@ -1,0 +1,86 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+nav{
+    position: fixed;
+}
+.navbar {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Assure que la navbar reste au-dessus des autres éléments */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+
+.navbar-brand img {
+    width: 120px;
+    position: static;
+}
+
+.nav-link {
+    font-weight: bold;
+    color: #343a40;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+#logoutBtn {
+    border: 2px solid #dc3545;
+    background-color: #dc3545;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#logoutBtn:hover {
+    background-color: #ffffff;
+    color: #dc3545;
+}
+
+footer {
+    margin-top: auto;
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+footer p {
+    margin: 0;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.service-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    font-size: 50px;
+    color:#7e1721;
+}
+
+
+
+#head{
+    color: black !important;
+}

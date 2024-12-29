@@ -1,0 +1,109 @@
+/* Global styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #3a0077, #6b009c);
+    color: #fff;
+}
+
+.login-page {
+    height: 100vh;
+    background: linear-gradient(135deg, #3a0077, #6b009c);
+}
+
+.welcome-section {
+    padding: 20px;
+}
+
+.welcome-section h1 {
+    color: #fff;
+}
+
+.welcome-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.btn-gradient {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f);
+    color: #fff;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+.login-card h2 {
+    color: #fff;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #feb47b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .welcome-section {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Background gradient for signup page */
+.signup-page {
+    background: linear-gradient(135deg, #3a0077, #6b009c);
+    height: 100vh;
+    color: white;
+}
+
+/* Form container styling */
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Gradient button */
+.btn-gradient {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 30px;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f);
+}
+
+/* Footer styles */
+footer {
+    margin-top: auto;
+    padding: 15px 0;
+    font-size: 0.9rem;
+}

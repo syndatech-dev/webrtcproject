@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appel Audio - Synda - WebRTC</title>
+    <link rel="stylesheet" href="../assets/css/style0.css">
+    <link rel="stylesheet" href="../assets/css/style3.css">
+    <link rel="icon" type="image/png" href="../assets/img/logoS.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../assets/img/logoS.png" alt="Logo"><p class="mb-0">Synda - WebRTC</p></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/accueil">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-danger ms-3" id="logoutBtn">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- sk-d9b9c2546f0a409b81afccd92246331a -->
+    <div class="container text-center">
+        <h1 class="text-primary mb-4">Appel Audio</h1>
+        <div class="mb-3">
+            <label for="userList" class="form-label">Sélectionnez un utilisateur :</label>
+            <select id="userList" class="form-select">
+                <option selected disabled>Chargement des utilisateurs...</option>
+            </select>
+        </div>
+        <div id="status" class="alert alert-info">En attente de connexion...</div>
+        <div id="controls">
+            <button id="startCall" class="btn btn-success" disabled>Démarrer l'appel</button>
+            <button id="endCall" class="btn btn-danger" disabled>Terminer l'appel</button>
+        </div>
+    </div>
+
+    <footer class="text-center py-3">
+        <div class="container">
+            <p>© 2024 Synda - WebRTC. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../assets/js/audio-call.js"></script>
+</body>
+</html>
